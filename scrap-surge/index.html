@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scrap Surge | A space salvage game by FlouLox Studios</title>
+<meta name="description" content="Break drifting debris for scrap, level up your ship and drones, and beat the guardian of every sector. Scrap Surge is coming soon to Google Play.">
+<link rel="canonical" href="https://flouloxstudios.github.io/scrap-surge/">
+<meta name="theme-color" content="#06080f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FlouLox Studios">
+<meta property="og:title" content="Scrap Surge">
+<meta property="og:description" content="Break drifting debris, level up your ship and beat the guardian of every sector. Coming soon to Google Play.">
+<meta property="og:url" content="https://flouloxstudios.github.io/scrap-surge/">
+<meta property="og:image" content="https://flouloxstudios.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/icon-180.png">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Scrap Surge","url":"https://flouloxstudios.github.io/scrap-surge/","gamePlatform":"Android","applicationCategory":"Game","publisher":{"@type":"Organization","name":"FlouLox Studios","url":"https://flouloxstudios.github.io/"}}
+</script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/surge-demo.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="FlouLox Studios home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>FlouLox <span>Studios</span></span></a>
+    <nav aria-label="Main">
+      <a href="/#games" aria-current="true">Games</a>
+      <a href="/#approach">Approach</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="game-hero">
+    <div class="wrap">
+      <div>
+        <img class="logo" src="/scrap-surge/logo.png" alt="Scrap Surge" width="720" height="412">
+        <h1>Salvage the wreckage. Take on what's guarding it.</h1>
+        <p class="pitch">Tap drifting debris for scrap while your drones fire on their own. Find the shards that level up your ship, then beat the guardian of each sector to jump further out.</p>
+        <!-- When the game is live: replace this status line with a link to
+             https://play.google.com/store/apps/details?id=com.flouloxstudios.scrapsurge -->
+        <p class="status">Coming soon to Google Play</p>
+        <div class="btn-row">
+          <a class="btn" href="#screens">See it in action</a>
+          <a class="btn btn-ghost" href="#support">Support &amp; privacy</a>
+        </div>
+      </div>
+      <div class="demo" id="demo">
+        <img class="demo-planet" src="/scrap-surge/img/planet-obsidian_heart.webp" alt="" width="900" height="900">
+        <canvas role="img" aria-label="A small playable demo: debris drifts toward a ship. Tap the debris to break it for scrap."></canvas>
+        <div class="demo-hud" aria-hidden="true">
+          <span><img src="/scrap-surge/img/icon-scrap.webp" alt="" width="24" height="24"><b data-scrap>0</b></span>
+          <span class="combo" data-combo></span>
+        </div>
+        <p class="demo-hint">Tap the debris</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="screens">
+    <div class="wrap section-head reveal">
+      <div>
+        <p class="eyebrow">Screens</p>
+        <h2>From the game</h2>
+      </div>
+      <p class="lede">Real screens from the current build. Select one for a closer look.</p>
+    </div>
+    <ul class="shots">
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/hub.webp" alt="Home screen with planet Earth and a ship ready to launch" width="390" height="844" loading="lazy"></div><span>Every sector starts with a new world on the horizon.</span></button></li>
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/surge.webp" alt="A combo building as the Scrap Surge banner fills the screen" width="390" height="844" loading="lazy"></div><span>Build a combo, fill the dial, and unleash a SURGE.</span></button></li>
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/warden.webp" alt="The Warden guardian arrives with a name card" width="390" height="844" loading="lazy"></div><span>The Warden, keeper of the launch lane.</span></button></li>
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/fight.webp" alt="A guardian raises its shield as minions dive at the ship" width="390" height="844" loading="lazy"></div><span>Guardian fights are won by tapping, against the clock.</span></button></li>
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/hangar.webp" alt="The hangar with the ship, drone bay and upgrade modules" width="390" height="844" loading="lazy"></div><span>Grow your hull, modules and squadron in the hangar.</span></button></li>
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/scan.webp" alt="A capsule held in the salvage scanner's dish" width="390" height="844" loading="lazy"></div><span>Salvage scans pull capsules out of deep space.</span></button></li>
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/singularity.webp" alt="The Singularity paint job revealed on a ship" width="390" height="844" loading="lazy"></div><span>Some paint jobs can only be found out there.</span></button></li>
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/endless.webp" alt="Wave five of an Endless run over a magma planet" width="390" height="844" loading="lazy"></div><span>Endless runs: how many waves can your hull take?</span></button></li>
+      <li><button class="shot" type="button"><div class="phone"><img src="/scrap-surge/img/shots/leaderboard.webp" alt="The leaderboard with a podium and reward tiers" width="390" height="844" loading="lazy"></div><span>Climb the leaderboards and earn your rank title.</span></button></li>
+    </ul>
+    <dialog class="lightbox" aria-label="Screenshot viewer">
+      <div class="phone"><img src="data:," alt=""></div>
+      <p></p>
+      <div class="lightbox-nav">
+        <button type="button" data-prev aria-label="Previous screenshot">&larr;</button>
+        <button type="button" data-close>Close</button>
+        <button type="button" data-next aria-label="Next screenshot">&rarr;</button>
+      </div>
+    </dialog>
+  </section>
+
+  <section class="section loop">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">The game</p>
+          <h2>More than a tap</h2>
+        </div>
+      </div>
+      <div class="bento">
+        <article class="cell wide guardians reveal">
+          <h3>Sector guardians</h3>
+          <p>Fill the quota and the alarms start. Interrupt its lasers, clear its minions, break its shields and hit the core before time runs out.</p>
+          <div class="art">
+            <img src="/scrap-surge/img/guardian-sentinel.webp" alt="Sentinel guardian" width="360" height="360" loading="lazy">
+            <img src="/scrap-surge/img/guardian-maw.webp" alt="Maw guardian" width="360" height="360" loading="lazy">
+            <img src="/scrap-surge/img/guardian-colossus.webp" alt="Colossus guardian" width="360" height="360" loading="lazy">
+            <img src="/scrap-surge/img/guardian-hive.webp" alt="Hive guardian" width="360" height="360" loading="lazy">
+          </div>
+        </article>
+        <article class="cell wide reveal">
+          <h3>Five hulls, 43 paint jobs</h3>
+          <p>Your ship grows as your modules level up. Stripes, camouflage, chrome and animated plasma make it yours.</p>
+          <div class="art">
+            <img src="/scrap-surge/img/ship-ember.webp" alt="Ship in Ember paint" width="360" height="440" loading="lazy">
+            <img src="/scrap-surge/img/ship-cobalt.webp" alt="Ship in Cobalt paint" width="360" height="440" loading="lazy">
+            <img src="/scrap-surge/img/ship-sunburst.webp" alt="Ship in Sunburst paint" width="360" height="440" loading="lazy">
+            <img src="/scrap-surge/img/ship-jade.webp" alt="Ship in Jade Runner paint" width="360" height="440" loading="lazy">
+            <img src="/scrap-surge/img/ship-nebula.webp" alt="Ship in Nebula paint" width="360" height="440" loading="lazy">
+          </div>
+        </article>
+        <article class="cell reveal">
+          <h3>A squadron of eight</h3>
+          <p>Start with one drone. Collect parts from derelicts and guardians, and the next one assembles itself.</p>
+          <div class="art tight">
+            <img src="/scrap-surge/img/drone-1.webp" alt="Early drone" width="128" height="128" loading="lazy">
+            <img src="/scrap-surge/img/drone-3.webp" alt="Mid-level drone" width="128" height="128" loading="lazy">
+            <img src="/scrap-surge/img/drone-5.webp" alt="Late drone" width="128" height="128" loading="lazy">
+          </div>
+        </article>
+        <article class="cell reveal">
+          <h3>Salvage scans</h3>
+          <p>Lock on, draw a capsule in, and see what it's carrying. Every tenth scan is at least Epic.</p>
+          <div class="art tight">
+            <img src="/scrap-surge/img/icon-capsule.webp" alt="Salvage capsule" width="96" height="96" loading="lazy">
+            <img src="/scrap-surge/img/icon-shard.webp" alt="Shard" width="96" height="96" loading="lazy">
+            <img src="/scrap-surge/img/icon-gem.webp" alt="Gem" width="96" height="96" loading="lazy">
+          </div>
+        </article>
+        <article class="cell reveal">
+          <h3>Always something on</h3>
+          <p>A daily trial, weekly events, a new season every six weeks, and Endless runs you can challenge friends to beat.</p>
+          <div class="art tight">
+            <img src="/scrap-surge/img/icon-trophy.webp" alt="Trophy" width="96" height="96" loading="lazy">
+            <img src="/scrap-surge/img/icon-ticket.webp" alt="Scan ticket" width="96" height="96" loading="lazy">
+            <img src="/scrap-surge/img/icon-crate.webp" alt="Supply crate" width="96" height="96" loading="lazy">
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="worlds">
+    <div class="wrap section-head reveal">
+      <div>
+        <p class="eyebrow">The route</p>
+        <h2>17 worlds, then further</h2>
+      </div>
+      <p class="lede">Each world has its own contact, story and guardian. After Machine Prime, the route just keeps going.</p>
+    </div>
+    <ol class="worlds">
+      <li><img src="/scrap-surge/img/worlds/earth.webp" alt="" width="360" height="360" loading="lazy"><i>01</i><b>Earth</b><small>Earth launch control marks the first salvage corridor.</small></li>
+      <li><img src="/scrap-surge/img/worlds/scrap_belt.webp" alt="" width="360" height="360" loading="lazy"><i>02</i><b>Scrap Belt</b><small>The first scraps drift beyond Earth's launch lane.</small></li>
+      <li><img src="/scrap-surge/img/worlds/copper_moon.webp" alt="" width="360" height="360" loading="lazy"><i>03</i><b>Copper Moon</b><small>Refinery moon salvage coordinates found.</small></li>
+      <li><img src="/scrap-surge/img/worlds/verdant_wreck.webp" alt="" width="360" height="360" loading="lazy"><i>04</i><b>Verdant Wreck</b><small>Old wrecks bloom with rich salvage.</small></li>
+      <li><img src="/scrap-surge/img/worlds/ion_reef.webp" alt="" width="360" height="360" loading="lazy"><i>05</i><b>Ion Reef</b><small>Blue storms charge every loose plate.</small></li>
+      <li><img src="/scrap-surge/img/worlds/aurora_forge.webp" alt="" width="360" height="360" loading="lazy"><i>06</i><b>Aurora Forge</b><small>The forge glow hints someone came before.</small></li>
+      <li><img src="/scrap-surge/img/worlds/mystery_planet.webp" alt="" width="360" height="360" loading="lazy"><i>07</i><b>Signal Nexus</b><small>The pulsing signal was a beacon.</small></li>
+      <li><img src="/scrap-surge/img/worlds/glacier_tomb.webp" alt="" width="360" height="360" loading="lazy"><i>08</i><b>Glacier Tomb</b><small>A starliner sleeps under the ice, and the ice is cracking.</small></li>
+      <li><img src="/scrap-surge/img/worlds/dune_sea.webp" alt="" width="360" height="360" loading="lazy"><i>09</i><b>Dune Sea</b><small>Ancient ships lie half-buried in an ocean of sand.</small></li>
+      <li><img src="/scrap-surge/img/worlds/coral_abyss.webp" alt="" width="360" height="360" loading="lazy"><i>10</i><b>Coral Abyss</b><small>Living reefs glow over sunken wrecks.</small></li>
+      <li><img src="/scrap-surge/img/worlds/obsidian_heart.webp" alt="" width="360" height="360" loading="lazy"><i>11</i><b>Obsidian Heart</b><small>Black glass and rivers of magma. The planet's heart is beating.</small></li>
+      <li><img src="/scrap-surge/img/worlds/gas_giant.webp" alt="" width="360" height="360" loading="lazy"><i>12</i><b>Amber Maelstrom</b><small>One storm bigger than worlds, and a single platform riding it.</small></li>
+      <li><img src="/scrap-surge/img/worlds/crystal_bloom.webp" alt="" width="360" height="360" loading="lazy"><i>13</i><b>Crystal Bloom</b><small>Crystals the size of towers, humming in harmony.</small></li>
+      <li><img src="/scrap-surge/img/worlds/sulfur_world.webp" alt="" width="360" height="360" loading="lazy"><i>14</i><b>Sulfur Wastes</b><small>Volcanoes, refineries, and a smell you'll never forget.</small></li>
+      <li><img src="/scrap-surge/img/worlds/twilight_world.webp" alt="" width="360" height="360" loading="lazy"><i>15</i><b>Twilight Divide</b><small>Half fire, half ice. Life clings to the line between.</small></li>
+      <li><img src="/scrap-surge/img/worlds/shattered_moon.webp" alt="" width="360" height="360" loading="lazy"><i>16</i><b>Shattered Moon</b><small>A broken moon, held together by scaffolds and stubbornness.</small></li>
+      <li><img src="/scrap-surge/img/worlds/machine_world.webp" alt="" width="360" height="360" loading="lazy"><i>17</i><b>Machine Prime</b><small>A whole planet built as a machine. It has been waiting for you.</small></li>
+    </ol>
+  </section>
+
+  <section class="section loop" id="support">
+    <div class="wrap contact reveal">
+      <div>
+        <p class="eyebrow">Support &amp; privacy</p>
+        <h2>Need a hand, pilot?</h2>
+        <p>For a bug, a purchase problem or a leaderboard deletion, send us an email with your call sign. Your pilot ID is in the game's settings.</p>
+        <a class="mail" href="mailto:flouloxstudios@gmail.com?subject=Scrap%20Surge%20support">flouloxstudios@gmail.com</a>
+      </div>
+      <ul class="help">
+        <li><a href="/scrap-surge/privacy.html">Scrap Surge privacy policy</a></li>
+        <li><a href="mailto:flouloxstudios@gmail.com?subject=Delete%20my%20Scrap%20Surge%20leaderboard%20entry">Delete my leaderboard entry</a></li>
+        <li><a href="/">More from FlouLox Studios</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>&copy; 2026 FlouLox Studios</span>
+    <nav aria-label="Footer">
+      <a href="/scrap-surge/">Scrap Surge</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:flouloxstudios@gmail.com">Contact</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

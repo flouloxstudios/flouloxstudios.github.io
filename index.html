@@ -3,36 +3,147 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FlouLox Studios</title>
-<meta name="description" content="FlouLox Studios makes Scrap Surge, a space salvage game for phones.">
-<style>
-  :root { --bg: #070b1a; --card: #10162e; --ink: #e8eeff; --dim: #9aa6c8; --accent: #40e0ff; --line: #26304f; }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: radial-gradient(ellipse at 30% 0%, #16204a 0%, var(--bg) 60%) fixed; color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
-  .studio { font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dim); margin: 0 0 32px; }
-  .game { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px; text-align: center; }
-  .game img { width: 100%; max-width: 440px; height: auto; }
-  .game p { color: var(--dim); margin: 12px 0 20px; }
-  .links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .links a { color: var(--ink); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; }
-  .links a:hover { border-color: var(--accent); color: var(--accent); }
-  footer { margin-top: 32px; color: var(--dim); font-size: 14px; text-align: center; }
-  footer a { color: var(--accent); }
-</style>
+<title>FlouLox Studios | Independent games for your phone</title>
+<meta name="description" content="FlouLox Studios is an independent game studio. Our first game, Scrap Surge, a space salvage game for phones, is coming soon to Google Play.">
+<link rel="canonical" href="https://flouloxstudios.github.io/">
+<meta name="theme-color" content="#06080f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FlouLox Studios">
+<meta property="og:title" content="FlouLox Studios">
+<meta property="og:description" content="Independent games for your phone. Scrap Surge is coming soon to Google Play.">
+<meta property="og:url" content="https://flouloxstudios.github.io/">
+<meta property="og:image" content="https://flouloxstudios.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/icon-180.png">
+<link rel="preload" href="/assets/fonts/chakra-petch-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"FlouLox Studios","url":"https://flouloxstudios.github.io/","logo":"https://flouloxstudios.github.io/assets/img/icon-512.png","email":"flouloxstudios@gmail.com"}
+</script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/flow.js" defer></script>
 </head>
 <body>
-<main>
-  <p class="studio">FlouLox Studios</p>
-  <section class="game">
-    <img src="scrap-surge/logo.png" alt="Scrap Surge" width="720" height="412">
-    <p>Salvage debris, upgrade your ship and take on the guardians of deep space.</p>
-    <div class="links">
-      <a href="scrap-surge/privacy.html">Privacy policy</a>
-      <a href="mailto:flouloxstudios@gmail.com">Support</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="FlouLox Studios home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>FlouLox <span>Studios</span></span></a>
+    <nav aria-label="Main">
+      <a href="#games">Games</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <canvas id="flow" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <h1>FlouLox <small>Studios</small></h1>
+      <div class="hero-foot">
+        <p>An independent studio making games for your phone.</p>
+        <a class="now" href="/scrap-surge/">
+          <span class="status">Coming soon</span>
+          <b>Scrap Surge <i>&rarr;</i></b>
+        </a>
+      </div>
     </div>
   </section>
-  <footer>Contact: <a href="mailto:flouloxstudios@gmail.com">flouloxstudios@gmail.com</a></footer>
+
+  <section class="section" id="games">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Games</p>
+          <h2>What we're building</h2>
+        </div>
+      </div>
+
+      <!-- To add a game: copy this article, give it its own folder like /scrap-surge/, and update the status line. -->
+      <article class="game-feature reveal">
+        <div class="copy">
+          <h3>Scrap Surge</h3>
+          <img class="logo" src="/scrap-surge/logo.png" alt="Scrap Surge" width="720" height="412">
+          <p class="status">Coming soon to Google Play</p>
+          <p class="pitch">Break drifting debris for scrap, level up your ship and drones, and take on the guardian waiting at the end of every sector.</p>
+          <ul class="tags">
+            <li>Android</li>
+            <li>Space salvage</li>
+            <li>Portrait</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn" href="/scrap-surge/">See the game</a>
+            <a class="btn btn-ghost" href="/scrap-surge/privacy.html">Privacy policy</a>
+          </div>
+        </div>
+        <div class="scene" aria-hidden="true">
+          <img class="planet" src="/scrap-surge/img/planet-gas_giant.webp" alt="" width="900" height="900" loading="lazy">
+          <div class="phone"><img src="/scrap-surge/img/shots/hub.webp" alt="" width="390" height="844" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="next reveal">
+        <p class="eyebrow">Next project</p>
+        <h3><span class="sr-only">Classified</span><span aria-hidden="true" data-scramble>########</span></h3>
+        <p>Something else is on the workbench. When there's something to show, it lands on this page.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section approach" id="approach">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Approach</p>
+          <h2>Built to play fair</h2>
+        </div>
+        <p class="lede">Free-to-play doesn't have to feel like a trap. Here's how that works in Scrap Surge.</p>
+      </div>
+      <ol class="rules">
+        <li class="reveal">
+          <h3>Ads you choose</h3>
+          <p>Ads are optional rewarded videos. You decide when to watch one, and you get something for it.</p>
+        </li>
+        <li class="reveal">
+          <h3>No paid chance</h3>
+          <p>Nothing sold for money or gems is left to chance. Scan tickets are only earned by playing, and offers show exactly what's inside.</p>
+        </li>
+        <li class="reveal">
+          <h3>No account needed</h3>
+          <p>Your progress stays on your device. The leaderboard needs only a call sign you pick, a random pilot ID and your scores.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap contact reveal">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Say hello</h2>
+        <p>Found a bug, need help with a game, or want your leaderboard entry removed? Send us an email.</p>
+        <a class="mail" href="mailto:flouloxstudios@gmail.com">flouloxstudios@gmail.com</a>
+      </div>
+      <ul class="help">
+        <li><a href="mailto:flouloxstudios@gmail.com?subject=Scrap%20Surge%20support">Scrap Surge support</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><button type="button" data-copy="flouloxstudios@gmail.com">Copy email address <small>Copy</small></button></li>
+      </ul>
+    </div>
+  </section>
 </main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>&copy; 2026 FlouLox Studios</span>
+    <nav aria-label="Footer">
+      <a href="/scrap-surge/">Scrap Surge</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:flouloxstudios@gmail.com">Contact</a>
+    </nav>
+  </div>
+</footer>
 </body>
 </html>
