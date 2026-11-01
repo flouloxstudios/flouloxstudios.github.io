@@ -9,7 +9,7 @@ Static site served by GitHub Pages at https://flouloxstudios.github.io/ (reposit
 - `privacy/index.html`: list of game policies, plus the website's own privacy note.
 - `404.html`: shown by GitHub Pages for any unknown address.
 - `assets/`: shared styles, scripts, self-hosted fonts (SIL Open Font License) and studio images.
-- `app-ads.txt`: to be added at the root once the AdMob publisher ID is known.
+- `app-ads.txt`: AdMob's authorised seller line. It must stay at the root of the site listed as the app's website.
 
 **Do not move `scrap-surge/privacy.html`.** The game's Settings and the store listings link to this exact address.
 
