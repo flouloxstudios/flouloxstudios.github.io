@@ -1,13 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FlouLox Studios">
   <defs>
-    <linearGradient id="flow" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#4de8d0"/>
-      <stop offset="1" stop-color="#ff7a45"/>
+    <linearGradient id="fl-a" x1="10" y1="6" x2="44" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e879f9"/>
+      <stop offset="0.55" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="fl-b" x1="20" y1="26" x2="46" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c084fc"/>
+      <stop offset="1" stop-color="#7c3aed"/>
     </linearGradient>
   </defs>
-  <g fill="none" stroke="url(#flow)" stroke-width="8" stroke-linejoin="miter">
-    <path d="M11 45 V15 l6 -6 H45"/>
-    <path d="M11 27 H31"/>
-    <path d="M31 39 V49 l5 5 H57"/>
-  </g>
+  <!-- Top bar and stem: one slanted, cut-corner stroke -->
+  <path d="M22 6 H60 L53 18 H30 L27 26 L14 58 H2 L18 14 Z" fill="url(#fl-a)"/>
+  <!-- Middle bar -->
+  <path d="M27 28 H50 L44 39 H23 Z" fill="url(#fl-b)"/>
+  <!-- Highlight edge -->
+  <path d="M22 6 H60 L58.6 8.4 H22.9 L8 50 L6 50 Z" fill="#f5d0fe" opacity="0.55"/>
 </svg>

@@ -1,11 +1,14 @@
-// Shared behaviour for every page: scroll reveals, the redacted project title, copy-address buttons
-// and the screenshot viewer. Each part only runs where its markup exists, and every page works without it.
+// Shared behaviour for every page: scroll reveals, nav and tab highlighting, hero parallax, the redacted
+// project title, copy-address buttons and the screenshot viewer. Each part only runs where its markup
+// exists, and every page works without it.
 (() => {
+  const root = document.documentElement;
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  root.classList.add("js");
 
+  // Scroll reveals. Without IntersectionObserver everything is simply shown.
   const revealed = document.querySelectorAll(".reveal");
-  if (!reduced && "IntersectionObserver" in window) {
-    document.documentElement.classList.add("js");
+  if ("IntersectionObserver" in window && !reduced) {
     const watcher = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -15,6 +18,49 @@
       }
     }, { rootMargin: "0px 0px -6% 0px" });
     revealed.forEach((element) => watcher.observe(element));
+  } else {
+    revealed.forEach((element) => element.classList.add("in"));
+  }
+
+  // Highlight the nav link or tab for the section currently in view.
+  const spies = [...document.querySelectorAll("[data-spy]")];
+  if (spies.length && "IntersectionObserver" in window) {
+    const groups = new Map();
+    for (const link of spies) {
+      const section = document.getElementById(link.dataset.spy);
+      if (section) groups.set(section, link);
+    }
+    const mark = (link) => {
+      const siblings = link.parentElement.querySelectorAll("[data-spy]");
+      siblings.forEach((other) => other.removeAttribute("aria-current"));
+      link.setAttribute("aria-current", link.closest(".tabs") ? "true" : "page");
+    };
+    const spy = new IntersectionObserver((entries) => {
+      for (const entry of entries) if (entry.isIntersecting) mark(groups.get(entry.target));
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    groups.forEach((_, section) => spy.observe(section));
+  }
+
+  // Hero art drifts a little with the pointer.
+  if (!reduced && matchMedia("(pointer: fine)").matches) {
+    document.querySelectorAll(".hero, .game-hero").forEach((hero) => {
+      const layers = hero.querySelectorAll("[data-depth]");
+      if (!layers.length) return;
+      let raf = 0;
+      hero.addEventListener("pointermove", (event) => {
+        const box = hero.getBoundingClientRect();
+        const x = (event.clientX - box.left) / box.width - 0.5;
+        const y = (event.clientY - box.top) / box.height - 0.5;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          layers.forEach((layer) => {
+            const depth = Number(layer.dataset.depth);
+            layer.style.translate = `${(x * depth).toFixed(1)}px ${(y * depth).toFixed(1)}px`;
+          });
+        });
+      }, { passive: true });
+      hero.addEventListener("pointerleave", () => layers.forEach((layer) => { layer.style.translate = ""; }));
+    });
   }
 
   // The next project's title keeps trying to decode itself and never quite makes it.
@@ -22,10 +68,9 @@
   if (redacted && !reduced) {
     const glyphs = "ABCDEFGHKLMNPRSTVXZ0123456789#/";
     const blank = redacted.textContent;
-    let timer = 0;
     const scramble = () => {
       let steps = 12;
-      timer = setInterval(() => {
+      const timer = setInterval(() => {
         steps -= 1;
         redacted.textContent = steps <= 0 ? blank : [...blank].map((c) => (Math.random() < 0.45 ? glyphs[Math.floor(Math.random() * glyphs.length)] : c)).join("");
         if (steps <= 0) clearInterval(timer);

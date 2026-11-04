@@ -5,12 +5,12 @@
   const hero = canvas.parentElement;
   const context = canvas.getContext("2d");
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const TEAL = [77, 232, 208];
-  const EMBER = [255, 122, 69];
+  const VIOLET = [124, 58, 237];
+  const MAGENTA = [232, 121, 249];
   const BUCKETS = 8;
   const palette = Array.from({ length: BUCKETS }, (_, i) => {
     const t = i / (BUCKETS - 1);
-    return `rgba(${TEAL.map((c, n) => Math.round(c + (EMBER[n] - c) * t)).join(",")},0.5)`;
+    return `rgba(${VIOLET.map((c, n) => Math.round(c + (MAGENTA[n] - c) * t)).join(",")},0.42)`;
   });
   const paths = Array.from({ length: BUCKETS }, () => []);
   const pointer = { x: -9999, y: -9999, strength: 0 };
