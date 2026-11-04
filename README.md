@@ -1,7 +1,8 @@
 # FlouLox Studios website
 
-Static site served by GitHub Pages at https://flouloxstudios.github.io/ (repository
-`flouloxstudios/flouloxstudios.github.io`). No build step: edit the files and push to `main`.
+Static site served by GitHub Pages at https://flouloxstudios.com/ (repository
+`flouloxstudios/flouloxstudios.github.io`; the old https://flouloxstudios.github.io/ address redirects there).
+The domain is registered and its DNS managed at Cloudflare; `CNAME` holds the custom domain for GitHub Pages. No build step: edit the files and push to `main`.
 
 - `index.html`: studio home page, with a card for every game.
 - `scrap-surge/index.html`: the Scrap Surge page (with a small playable demo, `assets/js/surge-demo.js`).
