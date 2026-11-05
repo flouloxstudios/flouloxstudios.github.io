@@ -75,9 +75,9 @@
   /* ---------- Scroll reveals ---------- */
   onceVisible($$(".reveal"), (el) => el.classList.add("in"));
 
-  /* ---------- Pointer parallax for hero layers ---------- */
+  /* ---------- Pointer parallax (Scrap Surge hero phones) ---------- */
   if (!reduced && finePointer) {
-    $$("[data-hero], [data-parallax]").forEach((scene) => {
+    $$("[data-parallax]").forEach((scene) => {
       const layers = $$("[data-depth]", scene);
       if (!layers.length) return;
       let frame = 0;
