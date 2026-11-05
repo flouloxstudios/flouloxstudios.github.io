@@ -12,7 +12,7 @@ No build step: edit the files and push to `main`.
 - `404.html`: shown by GitHub Pages for any unknown address.
 - `assets/css/site.css`: every style. Colours, gradients, type, spacing, radii and motion timings are tokens at the top.
 - `assets/js/site.js`: all shared behaviour. Each part only runs when its markup is on the page.
-- `assets/img/`: logo (`emblem.webp`, `emblem-sm.webp`, `wordmark.webp`, cut from the fox logo), favicon and app icons, the hero art (`hero.webp`), share image (`og.jpg`) and `icons.svg` (the icon sprite, used as `<use href="/assets/img/icons.svg#name">`). To swap the logo or hero art, replace those files keeping their names.
+- `assets/img/`: logo (`emblem.webp`, `emblem-sm.webp`, `wordmark.webp`, cut from the fox logo), favicon and app icons, the hero art (`hero-1280/1920/2560.webp`, three sizes of one image), share image (`og.jpg`) and `icons.svg` (the icon sprite, used as `<use href="/assets/img/icons.svg#name">`). To swap the logo or hero art, replace those files keeping their names and sizes.
 - `assets/fonts/`: self-hosted fonts (SIL Open Font License): Newsreader (headlines), Hanken Grotesk (text), Chakra Petch (labels, game pages).
 - `app-ads.txt`: AdMob's authorised seller line. It must stay at the root of the site listed as the app's website.
 
