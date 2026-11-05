@@ -25,9 +25,15 @@ repository root; it copies them into every page between the `<!-- header -->` / 
 
 ## Contact form
 
-The site is static, so by default the form opens the visitor's email app with the message filled in. To send
-messages directly, create a form with a service such as Formspree, put its URL in the form's `data-endpoint`
-attribute in `index.html`, and mention that service in `privacy/index.html`.
+Pressing Send shows a review popup first, so visitors can check their message and nothing goes out by accident.
+After they confirm:
+
+- With a [Web3Forms](https://web3forms.com) access key in the form's `data-access-key` attribute (`index.html`),
+  the message is sent straight from the page and arrives by email. The key is meant to be public.
+- Or, for another service such as Formspree, put its form URL in `data-endpoint` instead.
+- With neither set, the visitor's email app opens with the message filled in.
+
+When a service is connected, mention it in the website privacy note in `privacy/index.html`.
 
 ## Adding a game
 

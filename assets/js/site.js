@@ -265,14 +265,17 @@
 
   /* ---------- Contact form ---------- */
   $$("[data-contact]").forEach((form) => {
-    const endpointOf = () => (form.dataset.endpoint || "").trim();
+    // Web3Forms needs only an access key; any other service (e.g. Formspree) is configured by its URL.
+    const keyOf = () => (form.dataset.accessKey || "").trim();
+    const endpointOf = () => (form.dataset.endpoint || "").trim() || (keyOf() ? "https://api.web3forms.com/submit" : "");
     const to = form.dataset.to;
     const submit = $("button[type=submit]", form);
     const label = $("[data-label]", submit);
     const status = $(".form-status", form);
     const statusText = $("p", status);
     const note = $("[data-form-note]", form);
-    if (endpointOf() && note) note.textContent = "We usually reply within a few days.";
+    if (endpointOf() && note) note.textContent = "You can check your message before it goes. We usually reply within a few days.";
+    const review = form.parentElement.querySelector("dialog.review");
     const emailOk = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
     const rules = {
       name: (v) => (v ? "" : "Please enter your name."),
@@ -316,18 +319,55 @@
       }
       if (form.elements.company.value) return; // honeypot: only bots fill this in
       const data = Object.fromEntries(inputs.map((input) => [input.name, input.value.trim()]));
+      if (review && typeof review.showModal === "function") {
+        $("[data-rv=from]", review).textContent = `${data.name} <${data.email}>`;
+        $("[data-rv=topic]", review).textContent = data.topic;
+        $("[data-rv=message]", review).textContent = data.message;
+        $("[data-rv-note]", review).textContent = endpointOf()
+          ? "This goes straight to the FlouLox team. We'll reply to the address above."
+          : "Your email app will open with this message filled in. Press send there to deliver it.";
+        $("[data-rv-send] span", review).textContent = endpointOf() ? "Send now" : "Open email app";
+        status.className = "form-status";
+        review.returnValue = "";
+        review.showModal();
+        $("[data-rv-send]", review).focus();
+        document.documentElement.style.overflow = "hidden";
+        review.pending = data;
+      } else {
+        deliver(data);
+      }
+    });
+    if (review) {
+      // Clicking the dimmed backdrop counts as "keep editing".
+      review.addEventListener("click", (event) => { if (event.target === review) review.close("cancel"); });
+      review.addEventListener("close", () => {
+        document.documentElement.style.overflow = "";
+        const data = review.pending;
+        review.pending = null;
+        if (review.returnValue === "send" && data) deliver(data);
+        else submit.focus();
+      });
+    }
+
+    async function deliver(data) {
       const endpoint = endpointOf();
+      const subject = `[${data.topic}] Message from ${data.name}`;
 
       if (endpoint) {
         busy(true, "Sending…");
+        const key = keyOf();
+        const payload = key
+          ? { access_key: key, subject, from_name: `${data.name} via flouloxstudios.com`, ...data }
+          : { _subject: subject, ...data };
         try {
-          const response = await fetch(endpoint, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
-          if (!response.ok) throw new Error(String(response.status));
+          const response = await fetch(endpoint, { method: "POST", body: JSON.stringify(payload), headers: { "Content-Type": "application/json", Accept: "application/json" } });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || result.success === false) throw new Error(String(response.status));
           form.reset();
           tried = false;
           show("ok", `<b>Thanks, ${escapeHtml(data.name)}. Your message was sent.</b> We'll reply to ${escapeHtml(data.email)}.`);
         } catch {
-          show("err", `Your message couldn't be sent just now. Please try again, or email us at <a href="mailto:${to}">${to}</a>.`);
+          show("err", `Your message couldn't be sent just now. Your text is still here, so please try again, or email us at <a href="mailto:${to}">${to}</a>.`);
         } finally {
           busy(false, "Send Message");
         }
@@ -335,15 +375,16 @@
       }
 
       // No form service configured: hand the message to the visitor's email app.
-      const subject = `[${data.topic}] Message from ${data.name}`;
-      const body = `${data.message}\n\n— ${data.name} (${data.email})`;
+      const body = `${data.message}
+
+— ${data.name} (${data.email})`;
       busy(true, "Opening email…");
       window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       setTimeout(() => {
         busy(false, "Send Message");
         show("info", `<b>Your email app should now be open with your message filled in.</b> Press send there to deliver it. Nothing opened? Email us at <a href="mailto:${to}">${to}</a>; your text is still here.`);
       }, 700);
-    });
+    }
   });
   function escapeHtml(text) {
     return text.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));

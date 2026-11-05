@@ -238,25 +238,29 @@
           <p class="eyebrow">Our journey</p>
           <p>Select a milestone for more.</p>
         </div>
-        <ol class="timeline" data-timeline style="--n:5">
+        <ol class="timeline" data-timeline style="--n:6">
           <li class="rail" aria-hidden="true"></li>
           <li class="milestone" style="--c:var(--cyan);--d:250ms">
             <span class="dot" aria-hidden="true"></span>
+            <button type="button" aria-expanded="false"><span class="when">Early 2026</span><span class="what">FlouLox Studios is founded</span><span class="more"><span>An independent studio with one goal: polished, atmospheric games with worlds of their own.</span></span></button>
+          </li>
+          <li class="milestone" style="--c:#1ab0ff;--d:420ms">
+            <span class="dot" aria-hidden="true"></span>
             <button type="button" aria-expanded="false"><span class="when">May 2026</span><span class="what">Work on Scrap Surge begins</span><span class="more"><span>The first version of a portrait space-salvage game for phones: tap debris, collect scrap, upgrade the ship.</span></span></button>
           </li>
-          <li class="milestone" style="--c:var(--blue);--d:450ms">
+          <li class="milestone" style="--c:var(--blue);--d:590ms">
             <span class="dot" aria-hidden="true"></span>
             <button type="button" aria-expanded="false"><span class="when">Oct 2026</span><span class="what">FlouLox Studios goes online</span><span class="more"><span>The studio website launches, with the Scrap Surge privacy policy and a place to reach us.</span></span></button>
           </li>
-          <li class="milestone" style="--c:var(--violet);--d:650ms">
+          <li class="milestone" style="--c:var(--violet);--d:760ms">
             <span class="dot" aria-hidden="true"></span>
             <button type="button" aria-expanded="false"><span class="when">Now</span><span class="what">Scrap Surge takes shape</span><span class="more"><span>17 worlds, sector guardians, hangar upgrades, Endless runs and leaderboards are in the current build.</span></span></button>
           </li>
-          <li class="milestone future" style="--c:var(--magenta);--d:850ms">
+          <li class="milestone future" style="--c:var(--magenta);--d:930ms">
             <span class="dot" aria-hidden="true"></span>
             <button type="button" aria-expanded="false"><span class="when">Next</span><span class="what">Scrap Surge comes to Android</span><span class="more"><span>Coming soon to Google Play. We'll share a date once there is one.</span></span></button>
           </li>
-          <li class="milestone future" style="--c:#b99bff;--d:1050ms">
+          <li class="milestone future" style="--c:#b99bff;--d:1100ms">
             <span class="dot" aria-hidden="true"></span>
             <button type="button" aria-expanded="false"><span class="when">Ahead</span><span class="what">The next project</span><span class="more"><span>Something else is on the workbench. More worlds, more ideas.</span></span></button>
           </li>
@@ -281,12 +285,14 @@
           <button class="copy-btn" type="button" data-copy="contact@flouloxstudios.com"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#copy"/></svg><span>Copy</span></button></p>
       </div>
 
-      <!-- The form opens the visitor's email app with the message filled in (this site is static, so there is no
-           server to send it from). To send directly instead, set data-endpoint to a form service URL that accepts a
-           POST of the form fields and answers with a 2xx status (for example a Formspree form), and mention that
-           service in /privacy/. -->
+      <!-- Pressing Send first shows a review dialog. Confirming it then either:
+           - sends the message straight from the page through a form service, when one is configured:
+             Web3Forms: put the access key in data-access-key, or
+             Formspree (or similar): put the form URL in data-endpoint;
+             and mention that service in /privacy/;
+           - or, with neither set, opens the visitor's email app with the message filled in. -->
       <div class="form-panel reveal" style="--d:120ms">
-        <form class="contact-form" data-contact data-endpoint="" data-to="contact@flouloxstudios.com" action="mailto:contact@flouloxstudios.com" method="post" enctype="text/plain" novalidate>
+        <form class="contact-form" data-contact data-access-key="" data-endpoint="" data-to="contact@flouloxstudios.com" action="mailto:contact@flouloxstudios.com" method="post" enctype="text/plain" novalidate>
           <div class="form-grid">
             <div class="field">
               <label for="cf-name">Your name</label>
@@ -319,11 +325,28 @@
             <div class="hp" aria-hidden="true"><label for="cf-company">Company</label><input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
           </div>
           <div class="form-foot">
-            <small data-form-note>Sending opens your email app with this message ready to go.</small>
+            <small data-form-note>You can check your message before it goes. Sending opens your email app with it ready to go.</small>
             <button class="btn" type="submit"><span class="spin" aria-hidden="true"></span><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#send"/></svg><span data-label>Send Message</span></button>
           </div>
           <div class="form-status" role="status" aria-live="polite"><div><p hidden></p></div></div>
         </form>
+        <dialog class="review" aria-labelledby="rv-title" aria-describedby="rv-note">
+          <form method="dialog" class="review-card">
+            <button class="icon-btn x" value="cancel" aria-label="Close and keep editing"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#close"/></svg></button>
+            <p class="eyebrow">Before it goes</p>
+            <h3 id="rv-title">Ready to send?</h3>
+            <dl>
+              <div><dt>From</dt><dd data-rv="from"></dd></div>
+              <div><dt>Subject</dt><dd data-rv="topic"></dd></div>
+              <div class="msg"><dt>Message</dt><dd data-rv="message"></dd></div>
+            </dl>
+            <p class="rv-note" id="rv-note" data-rv-note></p>
+            <div class="rv-actions">
+              <button class="btn btn-ghost" value="cancel"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#back"/></svg>Edit message</button>
+              <button class="btn" value="send" data-rv-send><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#send"/></svg><span>Send now</span></button>
+            </div>
+          </form>
+        </dialog>
       </div>
     </div>
   </section>

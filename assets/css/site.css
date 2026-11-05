@@ -290,13 +290,13 @@ button { cursor: pointer; }
 .timeline::before, .timeline .rail { content: ""; position: absolute; left: 11px; right: 0; top: 11px; height: 2px; border-radius: 2px; background: var(--line-2); }
 .timeline .rail { background: linear-gradient(90deg, var(--cyan), var(--violet) 60%, var(--magenta)); box-shadow: 0 0 12px rgba(0, 223, 255, 0.45); transform: scaleX(var(--fill, 1)); transform-origin: left; transition: transform 1s var(--ease-io) 0.2s; }
 .js .timeline:not(.in) .rail { transform: scaleX(0); }
-.milestone { position: relative; padding-top: 44px; }
+.milestone { position: relative; display: flex; flex-direction: column; padding-top: 44px; }
 .milestone .dot { position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--bg); box-shadow: 0 0 0 2px var(--line-2) inset; transition: box-shadow var(--t-med) var(--ease), background var(--t-med); transition-delay: var(--d, 0ms); }
 .milestone .dot::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--line-2); transition: background var(--t-med), box-shadow var(--t-med); transition-delay: var(--d, 0ms); }
 .timeline.in .milestone .dot { box-shadow: 0 0 0 2px var(--c, var(--cyan)) inset, 0 0 16px color-mix(in srgb, var(--c, var(--cyan)) 50%, transparent); }
 .timeline.in .milestone .dot::after { background: var(--c, var(--cyan)); }
 .milestone.future .dot::after { background: transparent !important; }
-.milestone button { display: block; width: 100%; padding: 16px 18px; border: 0; border-radius: var(--r-md); text-align: left; background: rgba(16, 27, 50, 0.5); box-shadow: 0 0 0 1px var(--line) inset; transition: background var(--t-fast), box-shadow var(--t-fast); }
+.milestone button { display: block; flex: 1; width: 100%; padding: 16px 18px; border: 0; border-radius: var(--r-md); text-align: left; background: rgba(16, 27, 50, 0.5); box-shadow: 0 0 0 1px var(--line) inset; transition: background var(--t-fast), box-shadow var(--t-fast); }
 .milestone button:hover, .milestone button[aria-expanded="true"] { background: rgba(16, 27, 50, 0.9); box-shadow: 0 0 0 1px color-mix(in srgb, var(--c, var(--cyan)) 55%, transparent) inset; }
 .milestone .when { display: block; margin-bottom: 6px; font: 700 13px/1 var(--f-tech); letter-spacing: 0.16em; text-transform: uppercase; color: var(--c, var(--cyan)); }
 .milestone .what { display: block; font-weight: 600; color: var(--ink); line-height: 1.35; }
@@ -368,6 +368,26 @@ html:not(.js) .milestone .more { position: static; opacity: 1; transform: none; 
 .form-status.err p { background: rgba(255, 107, 139, 0.08); box-shadow: 0 0 0 1px rgba(255, 107, 139, 0.45) inset; color: #ffd3dc; }
 .form-status.info p { background: rgba(0, 223, 255, 0.07); box-shadow: 0 0 0 1px rgba(0, 223, 255, 0.4) inset; color: #d3f6ff; }
 .form-status b { color: var(--ink); }
+
+/* Review step: the message is shown once more before it is sent */
+.review { width: min(560px, calc(100% - 32px)); max-height: calc(100svh - 32px); margin: auto; padding: 0; border: 0; border-radius: var(--r-lg); background: transparent; color: var(--ink); overflow: visible; }
+.review::backdrop { background: rgba(3, 5, 14, 0.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.review-card { position: relative; display: flex; flex-direction: column; max-height: calc(100svh - 32px); overflow: auto; scrollbar-width: thin; scrollbar-color: rgba(140, 165, 230, 0.35) transparent; padding: clamp(22px, 4vw, 34px); border-radius: var(--r-lg); background: linear-gradient(180deg, #14223d, #0a1225); box-shadow: 0 0 0 1px rgba(152, 92, 255, 0.4), 0 40px 80px rgba(0, 0, 0, 0.6); }
+.review-card::before { content: ""; position: absolute; left: 10%; right: 10%; top: -1px; height: 1px; background: var(--grad-line); }
+.review .x { position: absolute; right: 14px; top: 14px; width: 40px; height: 40px; }
+.review .eyebrow { margin-bottom: 10px; }
+.review h3 { margin-bottom: 20px; font: 500 clamp(28px, 4vw, 36px)/1.1 var(--f-display); }
+.review dl { display: grid; gap: 12px; }
+.review dl > div { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; }
+.review dt { padding-top: 2px; font: 600 12px/1.4 var(--f-tech); letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); }
+.review dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; }
+.review .msg { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.review .msg dd { max-height: min(34svh, 300px); overflow: auto; scrollbar-width: thin; scrollbar-color: rgba(140, 165, 230, 0.35) transparent; padding: 14px 16px; border-radius: 12px; background: rgba(5, 9, 23, 0.6); box-shadow: 0 0 0 1px var(--line) inset; color: #d5ddee; white-space: pre-wrap; font-size: 15px; line-height: 1.6; }
+.rv-note { margin-top: 16px; color: var(--dim); font-size: 14.5px; }
+.rv-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin-top: 22px; }
+.rv-actions .btn { --bh: 50px; }
+@media (max-width: 480px) { .rv-actions { flex-wrap: nowrap; } .rv-actions .btn { flex: 1 1 0; padding: 0 12px; gap: 8px; font-size: 15px; } .review .msg dd { max-height: 30svh; } .review dl > div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+@media (prefers-reduced-motion: no-preference) { .review[open] .review-card { animation: rise var(--t-med) var(--ease); } .review[open]::backdrop { animation: fade var(--t-med) var(--ease); } }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 560px) { .form-grid { grid-template-columns: minmax(0, 1fr); } .form-foot .btn { width: 100%; } }
 
