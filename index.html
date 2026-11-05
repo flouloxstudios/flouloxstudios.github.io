@@ -3,20 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FlouLox Studios | Independent games for your phone</title>
-<meta name="description" content="FlouLox Studios is an independent game studio. Our first game, Scrap Surge, a space salvage game for phones, is coming soon to Google Play.">
+<title>FlouLox Studios | Independent game studio</title>
+<meta name="description" content="FlouLox Studios is an independent game studio creating immersive worlds, memorable experiences, and games that linger. Our first game, Scrap Surge, is coming soon to Android.">
 <link rel="canonical" href="https://flouloxstudios.com/">
-<meta name="theme-color" content="#06030d">
+<meta name="theme-color" content="#050917">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FlouLox Studios">
 <meta property="og:title" content="FlouLox Studios">
-<meta property="og:description" content="Independent games for your phone. Scrap Surge is coming soon to Google Play.">
+<meta property="og:description" content="Original games. Built with atmosphere.">
 <meta property="og:url" content="https://flouloxstudios.com/">
-<meta property="og:image" content="https://flouloxstudios.com/assets/img/og.png">
+<meta property="og:image" content="https://flouloxstudios.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/img/mark.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/icon-180.png">
-<link rel="preload" href="/assets/fonts/chakra-petch-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/img/hero.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" href="/assets/fonts/newsreader-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>document.documentElement.classList.add("js");</script>
 <script type="application/ld+json">
@@ -24,184 +27,352 @@
 </script>
 <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
-<div class="space" aria-hidden="true"></div>
+<body class="home" id="top">
 <a class="skip" href="#main">Skip to content</a>
-<header class="nav">
+<!-- header current=home -->
+<header class="site-header" data-header>
   <div class="wrap">
-    <a class="brand" href="/" aria-label="FlouLox Studios home"><img src="/assets/img/mark.svg" alt="" width="38" height="38"><span>FlouLox <span>Studios</span></span></a>
-    <nav aria-label="Main">
-      <a href="/" data-spy="top" aria-current="page">Home</a>
-      <a href="/#games" data-spy="games">Games</a>
-      <a href="/#about" data-spy="about">About</a>
-      <a href="/#contact" data-spy="contact">Contact</a>
+    <a class="brand" href="/" aria-label="FlouLox Studios home">
+      <img class="mark" src="/assets/img/emblem-sm.webp" alt="" width="112" height="124">
+      <span class="sep" aria-hidden="true"></span>
+      <img class="word" src="/assets/img/wordmark.webp" alt="" width="400" height="88">
+    </a>
+    <button class="nav-toggle icon-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg></button>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <a href="/" data-nav="home" aria-current="page" data-spy="top">Home</a>
+      <a href="/#games" data-nav="games" data-spy="games">Games</a>
+      <a href="/#about" data-nav="about" data-spy="about">About</a>
+      <a href="/#contact" data-nav="contact" data-spy="contact">Contact</a>
     </nav>
   </div>
 </header>
+<!-- /header -->
 
 <main id="main">
-  <section class="hero" id="top">
-    <div class="floor" aria-hidden="true"><i></i></div>
+  <!-- 1. Hero -->
+  <section class="hero" aria-labelledby="hero-title" data-hero>
+    <div class="hero-scene" aria-hidden="true">
+      <div class="hero-sky"></div>
+      <div class="hero-art">
+        <div class="cam" data-depth="-14">
+          <img src="/assets/img/hero.webp" alt="" width="1032" height="781" fetchpriority="high">
+          <div class="hero-light"></div>
+        </div>
+      </div>
+      <div class="fog" data-depth="-24"></div>
+      <div class="fog f2" data-depth="-34"></div>
+      <div class="motes">
+        <i style="--x:58%;--y:18%;--t:16s;--dl:0s;--dx:30px"></i>
+        <i style="--x:66%;--y:30%;--t:19s;--dl:3s;--s:2px"></i>
+        <i style="--x:74%;--y:12%;--t:15s;--dl:6s;--dx:-20px"></i>
+        <i style="--x:82%;--y:26%;--t:21s;--dl:1.5s;--s:2px"></i>
+        <i style="--x:88%;--y:40%;--t:17s;--dl:8s"></i>
+        <i style="--x:62%;--y:44%;--t:20s;--dl:10s;--s:2px;--dx:-30px"></i>
+        <i style="--x:93%;--y:16%;--t:18s;--dl:12s;--s:2px"></i>
+        <i style="--x:70%;--y:52%;--t:22s;--dl:5s"></i>
+      </div>
+      <div class="hero-shade"></div>
+      <div class="hero-fade"></div>
+    </div>
     <div class="wrap">
       <div class="hero-copy">
-        <p class="eyebrow">Indie game studio</p>
-        <h1><span class="a">FlouLox</span> <span class="b">Studios</span></h1>
-        <p class="lead">Games for your phone that are quick to pick up and hard to put down.</p>
+        <p class="eyebrow trail">Independent game studio</p>
+        <h1 id="hero-title"><span class="line">Original games.</span> <span class="line grad-text">Built with atmosphere.</span></h1>
+        <p class="lead">FlouLox Studios is an independent game studio creating immersive worlds, memorable experiences, and games that linger.</p>
         <div class="btn-row">
-          <a class="btn" href="#games"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#pad"/></svg>Our games<svg class="ic go" aria-hidden="true"><use href="/assets/img/icons.svg#arrow"/></svg></a>
-          <a class="btn btn-ghost" href="#about">About us</a>
+          <a class="btn" href="#games">Our Games<svg class="ic go" aria-hidden="true"><use href="/assets/img/icons.svg#arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#contact">Get in Touch<svg class="ic go" aria-hidden="true"><use href="/assets/img/icons.svg#arrow"/></svg></a>
         </div>
-      </div>
-      <div class="portal" aria-hidden="true">
-        <svg width="0" height="0" style="position:absolute">
-          <defs>
-            <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0abfc"/><stop offset=".5" stop-color="#a855f7"/><stop offset="1" stop-color="#67e8f9"/></linearGradient>
-            <filter id="pglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
-        </svg>
-        <div class="halo"></div>
-        <div class="beam"></div>
-        <svg class="spin" style="--t:90s" viewBox="0 0 600 600" data-depth="4"><circle cx="300" cy="300" r="290" fill="none" stroke="#a855f7" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="2 9"/></svg>
-        <svg class="spin rev" style="--t:38s" viewBox="0 0 600 600" data-depth="6"><circle cx="300" cy="300" r="252" fill="none" stroke="url(#pg)" stroke-width="3" stroke-dasharray="190 40 30 40 96 70" filter="url(#pglow)"/></svg>
-        <svg class="spin" style="--t:64s" viewBox="0 0 600 600" data-depth="8"><circle cx="300" cy="300" r="216" fill="none" stroke="#c4b5fd" stroke-opacity=".35" stroke-width="9" stroke-dasharray="1 7"/></svg>
-        <svg class="spin" style="--t:12s" viewBox="0 0 600 600" data-depth="10"><circle cx="300" cy="300" r="180" fill="none" stroke="#7c3aed" stroke-opacity=".4"/><circle cx="300" cy="300" r="180" fill="none" stroke="url(#pg)" stroke-width="5" stroke-linecap="round" stroke-dasharray="80 1050" filter="url(#pglow)"/></svg>
-        <svg class="orbit back" viewBox="0 0 600 600" data-depth="8">
-          <defs><clipPath id="c-back"><rect x="-50" y="0" width="700" height="300"/></clipPath></defs>
-          <g clip-path="url(#c-back)" fill="none">
-            <ellipse cx="300" cy="300" rx="296" ry="84" stroke="url(#pg)" stroke-width="2.5" filter="url(#pglow)"/>
-            <ellipse cx="300" cy="300" rx="272" ry="70" stroke="#c4b5fd" stroke-opacity=".35" stroke-dasharray="4 8"/>
-            <circle r="6" fill="#fff" filter="url(#pglow)"><animateMotion dur="7s" repeatCount="indefinite" path="M4 300a296 84 0 1 0 592 0a296 84 0 1 0-592 0"/></circle>
-          </g>
-        </svg>
-        <div class="core" data-depth="-16"><img src="/assets/img/mark.svg" alt="" width="228" height="228"></div>
-        <svg class="orbit front" viewBox="0 0 600 600" data-depth="14">
-          <defs><clipPath id="c-front"><rect x="-50" y="300" width="700" height="300"/></clipPath></defs>
-          <g clip-path="url(#c-front)" fill="none">
-            <ellipse cx="300" cy="300" rx="296" ry="84" stroke="url(#pg)" stroke-width="2.5" filter="url(#pglow)"/>
-            <ellipse cx="300" cy="300" rx="272" ry="70" stroke="#c4b5fd" stroke-opacity=".35" stroke-dasharray="4 8"/>
-            <circle r="6" fill="#fff" filter="url(#pglow)"><animateMotion dur="7s" repeatCount="indefinite" path="M4 300a296 84 0 1 0 592 0a296 84 0 1 0-592 0"/></circle>
-          </g>
-        </svg>
-        <i class="shard s1 float" data-depth="-30"></i>
-        <i class="shard s2 float" data-depth="-22"></i>
-        <i class="shard s3 float" data-depth="26"></i>
-        <i class="shard s4 float" data-depth="34"></i>
-        <i class="shard s5 float" data-depth="-12"></i>
-        <i class="spark k1"></i><i class="spark k2"></i><i class="spark k3"></i><i class="spark k4"></i>
       </div>
     </div>
+    <a class="scroll-cue" href="#games" aria-hidden="true" tabindex="-1">Scroll<i></i></a>
   </section>
 
-  <section class="section" id="games">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <p class="eyebrow slash">Our games</p>
-          <h2>What we're building</h2>
-        </div>
+  <!-- 2. Our games. Each game is one .slide.game <li>; copy the Scrap Surge one to add a game (newest first).
+       The carousel adapts to any number of slides: arrows and dots only appear when there is something to scroll to. -->
+  <section class="games-section" id="games" aria-labelledby="games-title">
+    <div class="wrap section-head">
+      <div class="reveal">
+        <p class="eyebrow">Our games</p>
+        <h2 class="title" id="games-title">What we're building.</h2>
       </div>
-
-      <!-- To add a game: copy the Scrap Surge card, give the game its own folder like /scrap-surge/, and update its status pill. -->
-      <div class="games">
-        <div class="glow reveal">
-          <a class="game-card cut" href="/scrap-surge/">
-            <div class="media" aria-hidden="true">
-              <img class="planet" src="/scrap-surge/img/planet-obsidian_heart.webp" alt="" width="900" height="900" loading="lazy">
-              <div class="ship"><img src="/scrap-surge/img/ship-ember.webp" alt="" width="360" height="440" loading="lazy"></div>
-              <i class="rock float"></i>
+      <div class="show-controls" data-show-controls hidden>
+        <button class="icon-btn" type="button" data-prev aria-label="Previous game" aria-controls="game-track"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#chev-l"/></svg></button>
+        <button class="icon-btn" type="button" data-next aria-label="Next game" aria-controls="game-track"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#chev-r"/></svg></button>
+      </div>
+    </div>
+    <div class="showcase reveal" data-showcase>
+      <ul class="show-track" id="game-track" aria-label="Games" tabindex="0">
+        <li class="slide game">
+          <a class="game-card" href="/scrap-surge/">
+            <div class="game-art" aria-hidden="true">
+              <div class="space-bg"></div>
+              <img class="planet" src="/scrap-surge/img/planet-gas_giant.webp" alt="" width="900" height="900" loading="lazy">
+              <i class="chunk" style="--bx:0;--by:0;left:44%;top:58%;--r:20deg;--k:26px"></i>
+              <i class="chunk" style="--bx:-64px;--by:-128px;left:84%;top:66%;--r:-30deg;--k:10px"></i>
+              <i class="chunk" style="--bx:-128px;--by:-64px;left:60%;top:6%;--r:10deg;--k:34px;width:48px;height:48px;background-size:192px auto;background-position:-96px -48px"></i>
+              <i class="chunk" style="--bx:-192px;--by:-256px;left:92%;top:30%;--r:40deg;--k:18px"></i>
+              <img class="ship s2" src="/scrap-surge/img/ship-cobalt.webp" alt="" width="360" height="440" loading="lazy">
+              <img class="ship" src="/scrap-surge/img/ship-ember.webp" alt="" width="360" height="440" loading="lazy">
+              <div class="shade"></div>
             </div>
             <div class="body">
-              <h3 class="sr-only">Scrap Surge</h3>
-              <img class="logo" src="/scrap-surge/logo.png" alt="Scrap Surge" width="720" height="412" loading="lazy">
-              <p>Break drifting debris for scrap, level up your ship and drones, and take on the guardian waiting at the end of every sector.</p>
-              <div class="foot-row">
-                <ul class="pills">
-                  <li class="pill soon">Coming soon</li>
-                  <li class="pill"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#phone"/></svg>Android</li>
-                </ul>
-                <span class="go-btn" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#arrow"/></svg></span>
-              </div>
+              <ul class="pills">
+                <li class="pill status">Coming soon</li>
+                <li class="pill"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#android"/></svg>Android</li>
+              </ul>
+              <h3><img class="logo" src="/scrap-surge/logo.png" alt="Scrap Surge" width="720" height="412" loading="lazy"></h3>
+              <p class="tagline">Salvage · Upgrade · Survive</p>
+              <p class="desc">Break drifting debris for scrap, upgrade your ship and drones, explore new worlds and take on the guardian waiting at the end of every sector.</p>
+              <span class="cta">View game<svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#arrow"/></svg></span>
             </div>
           </a>
-        </div>
-
-        <div class="glow reveal">
-          <article class="locked cut">
+        </li>
+        <li class="slide tease">
+          <article class="tease-card">
             <span class="lock" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#lock"/></svg></span>
-            <h3><span class="sr-only">Classified</span><span aria-hidden="true" data-scramble>########</span></h3>
+            <span class="pill violet">In development</span>
+            <h3>Next project</h3>
             <p>Something else is on the workbench. When there's something to show, it lands here.</p>
-            <span class="pill"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#clock"/></svg>In development</span>
           </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="wrap about">
-      <div class="about-copy reveal">
-        <div class="head">
-          <p class="eyebrow slash">About us</p>
-          <h2>Built to play fair</h2>
-        </div>
-        <p>FlouLox Studios is an independent studio making games for your phone. We build the kind of games we want to play ourselves: instant to start, with enough depth to keep you coming back. Free-to-play doesn't have to feel like a trap; here's how that works in Scrap Surge.</p>
-      </div>
-      <ul class="features">
-        <li class="glow reveal"><div class="feature cut">
-          <span class="badge-ic" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#hand"/></svg></span>
-          <h3>Ads you choose</h3>
-          <p>Ads are optional rewarded videos. You decide when to watch one, and you get something for it.</p>
-        </div></li>
-        <li class="glow reveal"><div class="feature cut">
-          <span class="badge-ic" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#shield"/></svg></span>
-          <h3>No paid chance</h3>
-          <p>Nothing sold for money or gems is left to chance. Scan tickets are only earned by playing, and offers show exactly what's inside.</p>
-        </div></li>
-        <li class="glow reveal"><div class="feature cut">
-          <span class="badge-ic" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#device"/></svg></span>
-          <h3>No account needed</h3>
-          <p>Your progress stays on your device. The leaderboard needs only a call sign you pick, a random pilot ID and your scores.</p>
-        </div></li>
+        </li>
       </ul>
+      <div class="show-dots" data-show-dots hidden></div>
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <!-- 3. About + journey -->
+  <section class="about-section" id="about" aria-labelledby="about-title">
     <div class="wrap">
-      <div class="glow reveal">
-        <div class="cta cut">
-          <span class="mail-ic" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#mail"/></svg></span>
-          <div>
-            <h2>Let's talk</h2>
-            <p>Found a bug, need help with a game, want your leaderboard entry removed, or have an idea? Send us an email.</p>
-            <a class="mail" href="mailto:contact@flouloxstudios.com">contact@flouloxstudios.com</a>
-            <ul class="links">
-              <li><a href="mailto:contact@flouloxstudios.com?subject=Scrap%20Surge%20support">Scrap Surge support</a></li>
-              <li><a href="/privacy/">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="actions">
-            <a class="btn" href="mailto:contact@flouloxstudios.com">Contact us<svg class="ic go" aria-hidden="true"><use href="/assets/img/icons.svg#arrow"/></svg></a>
-            <button class="copy" type="button" data-copy="contact@flouloxstudios.com"><small>Copy email address</small></button>
-          </div>
+      <div class="about-grid">
+        <div class="studio reveal" data-studio aria-hidden="true">
+          <svg class="room" viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="st-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1636"/><stop offset="1" stop-color="#060b1c"/></linearGradient>
+              <linearGradient id="st-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f0d2e"/><stop offset=".5" stop-color="#28164f"/><stop offset=".8" stop-color="#6d2775"/><stop offset=".93" stop-color="#c34a8e"/><stop offset="1" stop-color="#3b1a55"/></linearGradient>
+              <linearGradient id="st-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1838"/><stop offset="1" stop-color="#03060f"/></linearGradient>
+              <linearGradient id="st-rim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00dfff"/><stop offset=".5" stop-color="#985cff"/><stop offset="1" stop-color="#ec49de"/></linearGradient>
+              <linearGradient id="st-cone" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#7fd8ff" stop-opacity=".3"/><stop offset="1" stop-color="#7fd8ff" stop-opacity="0"/></linearGradient>
+              <linearGradient id="st-stripC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00dfff" stop-opacity="0"/><stop offset=".5" stop-color="#00dfff"/><stop offset="1" stop-color="#00dfff" stop-opacity="0"/></linearGradient>
+              <linearGradient id="st-stripM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ec49de" stop-opacity="0"/><stop offset=".5" stop-color="#ec49de"/><stop offset="1" stop-color="#ec49de" stop-opacity="0"/></linearGradient>
+              <radialGradient id="st-pool" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#3487ff" stop-opacity=".45"/><stop offset="1" stop-color="#3487ff" stop-opacity="0"/></radialGradient>
+              <radialGradient id="st-moon" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#f2dcff"/><stop offset="1" stop-color="#8a6cc7"/></radialGradient>
+              <filter id="st-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+              <clipPath id="st-win"><rect x="150" y="90" width="700" height="330" rx="4"/></clipPath>
+              <clipPath id="st-floorclip"><path d="M0 560 150 470h700l150 90v240H0z"/></clipPath>
+            </defs>
+            <rect width="1000" height="800" fill="url(#st-wall)"/>
+            <!-- window onto the city -->
+            <g clip-path="url(#st-win)">
+              <rect x="150" y="90" width="700" height="330" fill="url(#st-sky)"/>
+              <circle cx="720" cy="170" r="40" fill="url(#st-moon)" opacity=".85"/>
+              <circle cx="738" cy="160" r="40" fill="#1a1240" opacity=".75"/>
+              <path fill="#2a1a52" opacity=".8" d="M150 372h40v-30h22v20h30v-48h26v58h34v-26h30v-40h18v66h40v-22h26v28h36v-52h22v52h30v-34h28v44h40v-70h20v70h30v-28h34v40h26v-60h22v60h40v-36h30v46h40v-24h30v54H150z"/>
+              <path fill="#0b0d26" d="M150 420v-38h28v-40h34v52h26v-70h44v76h22v-34h40v44h30v-92h30v92h22v-46h38v58h28v-30h30v-58h46v88h24v-42h40v48h28v-72h34v72h22v-34h44v54h30v-22h36v56z"/>
+              <g fill="#7fe3ff" opacity=".7"><rect x="250" y="320" width="4" height="4"/><rect x="262" y="336" width="4" height="4"/><rect x="408" y="300" width="4" height="4"/><rect x="420" y="318" width="4" height="4"/><rect x="560" y="338" width="4" height="4"/><rect x="640" y="304" width="4" height="4"/><rect x="652" y="322" width="4" height="4"/><rect x="760" y="356" width="4" height="4"/></g>
+              <g fill="#f59ae9" opacity=".7"><rect x="300" y="352" width="4" height="4"/><rect x="474" y="340" width="4" height="4"/><rect x="598" y="364" width="4" height="4"/><rect x="712" y="330" width="4" height="4"/><rect x="812" y="378" width="4" height="4"/></g>
+              <path d="M520 90 640 90 420 420 300 420z" fill="#fff" opacity=".035"/>
+              <path d="M690 90h40L510 420h-40z" fill="#fff" opacity=".03"/>
+            </g>
+            <g fill="#070c1e"><rect x="320" y="90" width="10" height="330"/><rect x="495" y="90" width="10" height="330"/><rect x="670" y="90" width="10" height="330"/><rect x="150" y="290" width="700" height="6"/></g>
+            <rect x="150" y="90" width="700" height="330" rx="4" fill="none" stroke="#1c2a55" stroke-width="10"/>
+            <!-- ceiling and side walls -->
+            <path d="M0 0h1000l-150 70H150z" fill="#060a1a"/>
+            <path d="M150 70h700" stroke="#00dfff" stroke-width="3" opacity=".9"/>
+            <path d="M150 70h700" stroke="#00dfff" stroke-width="10" opacity=".5" filter="url(#st-glow)"/>
+            <path d="M0 0 150 70v400L0 560z" fill="#081029"/>
+            <path d="M1000 0 850 70v400l150 90z" fill="#081029"/>
+            <path d="M62 60 74 66v430l-12 7z" fill="url(#st-stripC)" opacity=".9"/>
+            <path d="M62 60 74 66v430l-12 7z" fill="url(#st-stripC)" opacity=".6" filter="url(#st-glow)"/>
+            <path d="M938 60 926 66v430l12 7z" fill="url(#st-stripM)" opacity=".9"/>
+            <path d="M938 60 926 66v430l12 7z" fill="url(#st-stripM)" opacity=".6" filter="url(#st-glow)"/>
+            <!-- floor with a soft perspective grid and the window's reflection -->
+            <path d="M0 560 150 470h700l150 90v240H0z" fill="url(#st-floor)"/>
+            <g clip-path="url(#st-floorclip)">
+              <path d="M150 470h700l60 120H90z" fill="url(#st-sky)" opacity=".12"/>
+              <g stroke="#6f8fff" stroke-opacity=".12" stroke-width="1.5" fill="none">
+                <path d="M500 300-700 800M500 300-300 800M500 300 100 800M500 300 500 800M500 300 900 800M500 300 1300 800M500 300 1700 800"/>
+                <path d="M0 520h1000M0 590h1000M0 680h1000"/>
+              </g>
+            </g>
+            <!-- consoles -->
+            <g>
+              <path d="M40 640 70 600h170l20 40z" fill="#0b1532"/>
+              <rect x="92" y="520" width="120" height="72" rx="6" fill="#0a1734" stroke="#1d3770" stroke-width="2"/>
+              <g stroke="#00dfff" stroke-width="3" opacity=".6" stroke-linecap="round"><path d="M106 540h60M106 556h86M106 572h44"/></g>
+              <rect x="92" y="520" width="120" height="72" rx="6" fill="#00dfff" opacity=".08" filter="url(#st-glow)"/>
+              <path d="M960 640 930 600H760l-20 40z" fill="#0b1532"/>
+              <rect x="788" y="520" width="120" height="72" rx="6" fill="#140d34" stroke="#3a2370" stroke-width="2"/>
+              <g stroke="#ec49de" stroke-width="3" opacity=".55" stroke-linecap="round"><path d="M802 540h40M802 556h80M802 572h60"/></g>
+              <rect x="788" y="520" width="120" height="72" rx="6" fill="#ec49de" opacity=".07" filter="url(#st-glow)"/>
+            </g>
+            <!-- display platform -->
+            <path d="M330 600 670 600 590 150H410z" fill="url(#st-cone)" opacity=".55"/>
+            <ellipse cx="500" cy="640" rx="300" ry="70" fill="url(#st-pool)"/>
+            <path d="M290 600v26a210 46 0 0 0 420 0v-26z" fill="#0a1330"/>
+            <ellipse cx="500" cy="626" rx="210" ry="46" fill="none" stroke="#18284f" stroke-width="2"/>
+            <ellipse cx="500" cy="600" rx="210" ry="46" fill="#0d1a3c" stroke="url(#st-rim)" stroke-width="3"/>
+            <ellipse cx="500" cy="600" rx="210" ry="46" fill="none" stroke="url(#st-rim)" stroke-width="10" opacity=".5" filter="url(#st-glow)"/>
+            <ellipse cx="500" cy="600" rx="160" ry="32" fill="none" stroke="#00dfff" stroke-opacity=".45" stroke-dasharray="4 10"/>
+            <ellipse cx="500" cy="600" rx="100" ry="18" fill="#3487ff" opacity=".35" filter="url(#st-glow)"/>
+            <g fill="#bfe9ff"><circle cx="452" cy="470" r="2" opacity=".6"/><circle cx="540" cy="420" r="1.6" opacity=".5"/><circle cx="476" cy="300" r="1.6" opacity=".4"/><circle cx="560" cy="530" r="2" opacity=".5"/></g>
+          </svg>
+          <div class="holo"><img src="/assets/img/emblem.webp" alt="" width="520" height="578" loading="lazy"></div>
+          <div class="dim"></div>
         </div>
+        <div class="about-copy">
+          <p class="eyebrow reveal">About FlouLox Studios</p>
+          <h2 class="title reveal" id="about-title" style="--d:80ms">Meet FlouLox.</h2>
+          <p class="reveal" style="--d:160ms">FlouLox Studios is an independent game studio focused on creating original experiences, exploring new ideas, and building games players want to return to.</p>
+          <ul class="values">
+            <li class="reveal" style="--d:240ms"><span class="ic-wrap" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#spark"/></svg></span><span><b>Original games.</b> Our own worlds, characters and ideas.</span></li>
+            <li class="reveal" style="--d:320ms"><span class="ic-wrap" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#flask"/></svg></span><span><b>Room to experiment.</b> Trying things until they feel right.</span></li>
+            <li class="reveal" style="--d:400ms"><span class="ic-wrap" aria-hidden="true"><svg class="ic"><use href="/assets/img/icons.svg#heart"/></svg></span><span><b>Made for players.</b> Fair, readable and worth coming back to.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Journey: add a milestone by copying an <li>. Use .future for things that haven't happened yet. -->
+      <div class="journey">
+        <div class="journey-head reveal">
+          <p class="eyebrow">Our journey</p>
+          <p>Select a milestone for more.</p>
+        </div>
+        <ol class="timeline" data-timeline style="--n:5">
+          <li class="rail" aria-hidden="true"></li>
+          <li class="milestone" style="--c:var(--cyan);--d:250ms">
+            <span class="dot" aria-hidden="true"></span>
+            <button type="button" aria-expanded="false"><span class="when">May 2026</span><span class="what">Work on Scrap Surge begins</span><span class="more"><span>The first version of a portrait space-salvage game for phones: tap debris, collect scrap, upgrade the ship.</span></span></button>
+          </li>
+          <li class="milestone" style="--c:var(--blue);--d:450ms">
+            <span class="dot" aria-hidden="true"></span>
+            <button type="button" aria-expanded="false"><span class="when">Oct 2026</span><span class="what">FlouLox Studios goes online</span><span class="more"><span>The studio website launches, with the Scrap Surge privacy policy and a place to reach us.</span></span></button>
+          </li>
+          <li class="milestone" style="--c:var(--violet);--d:650ms">
+            <span class="dot" aria-hidden="true"></span>
+            <button type="button" aria-expanded="false"><span class="when">Now</span><span class="what">Scrap Surge takes shape</span><span class="more"><span>17 worlds, sector guardians, hangar upgrades, Endless runs and leaderboards are in the current build.</span></span></button>
+          </li>
+          <li class="milestone future" style="--c:var(--magenta);--d:850ms">
+            <span class="dot" aria-hidden="true"></span>
+            <button type="button" aria-expanded="false"><span class="when">Next</span><span class="what">Scrap Surge comes to Android</span><span class="more"><span>Coming soon to Google Play. We'll share a date once there is one.</span></span></button>
+          </li>
+          <li class="milestone future" style="--c:#b99bff;--d:1050ms">
+            <span class="dot" aria-hidden="true"></span>
+            <button type="button" aria-expanded="false"><span class="when">Ahead</span><span class="what">The next project</span><span class="more"><span>Something else is on the workbench. More worlds, more ideas.</span></span></button>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Contact -->
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow reveal">Contact</p>
+        <h2 class="title reveal" id="contact-title" style="--d:80ms"><span class="line">Got an idea?</span><span class="line grad-text">Let's talk.</span></h2>
+        <p class="reveal" style="--d:160ms">Have a question, a collaboration proposal, or just want to share an idea? We read every message.</p>
+        <ul class="reasons">
+          <li class="reveal" style="--d:200ms"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#chat"/></svg><span><b>General inquiries</b><span>Questions about the studio or our games.</span></span></li>
+          <li class="reveal" style="--d:260ms"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#code"/></svg><span><b>Collaborations</b><span>Partnerships, press and creative projects.</span></span></li>
+          <li class="reveal" style="--d:320ms"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#spark"/></svg><span><b>Ideas &amp; feedback</b><span>Bugs, suggestions, or something you'd love to see.</span></span></li>
+        </ul>
+        <p class="direct reveal" style="--d:360ms">Prefer email? <a href="mailto:contact@flouloxstudios.com">contact@flouloxstudios.com</a>
+          <button class="copy-btn" type="button" data-copy="contact@flouloxstudios.com"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#copy"/></svg><span>Copy</span></button></p>
+      </div>
+
+      <!-- The form opens the visitor's email app with the message filled in (this site is static, so there is no
+           server to send it from). To send directly instead, set data-endpoint to a form service URL that accepts a
+           POST of the form fields and answers with a 2xx status (for example a Formspree form), and mention that
+           service in /privacy/. -->
+      <div class="form-panel reveal" style="--d:120ms">
+        <form class="contact-form" data-contact data-endpoint="" data-to="contact@flouloxstudios.com" action="mailto:contact@flouloxstudios.com" method="post" enctype="text/plain" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="cf-name">Your name</label>
+              <div class="control"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#user"/></svg><input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby="cf-name-err"></div>
+              <p class="error" id="cf-name-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="cf-email">Your email</label>
+              <div class="control"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg><input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="200" aria-describedby="cf-email-err"></div>
+              <p class="error" id="cf-email-err" aria-live="polite"></p>
+            </div>
+            <div class="field full">
+              <label for="cf-topic">Subject</label>
+              <div class="control"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#tag"/></svg>
+                <select id="cf-topic" name="topic" required aria-describedby="cf-topic-err">
+                  <option value="">Choose a topic</option>
+                  <option>General inquiry</option>
+                  <option>Game support</option>
+                  <option>Collaboration</option>
+                  <option>Feedback</option>
+                  <option>Other</option>
+                </select><svg class="ic chev" aria-hidden="true"><use href="/assets/img/icons.svg#chev-d"/></svg></div>
+              <p class="error" id="cf-topic-err" aria-live="polite"></p>
+            </div>
+            <div class="field full">
+              <label for="cf-message">Your message</label>
+              <div class="control"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#chat"/></svg><textarea id="cf-message" name="message" required minlength="10" maxlength="5000" rows="6" aria-describedby="cf-message-err"></textarea></div>
+              <p class="error" id="cf-message-err" aria-live="polite"></p>
+            </div>
+            <div class="hp" aria-hidden="true"><label for="cf-company">Company</label><input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+          </div>
+          <div class="form-foot">
+            <small data-form-note>Sending opens your email app with this message ready to go.</small>
+            <button class="btn" type="submit"><span class="spin" aria-hidden="true"></span><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#send"/></svg><span data-label>Send Message</span></button>
+          </div>
+          <div class="form-status" role="status" aria-live="polite"><div><p hidden></p></div></div>
+        </form>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="foot">
+<!-- footer -->
+<footer class="site-footer">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="FlouLox Studios home"><img src="/assets/img/mark.svg" alt="" width="32" height="32"><span>FlouLox <span>Studios</span></span></a>
-    <nav aria-label="Footer">
-      <a href="/">Home</a>
-      <a href="/#games">Games</a>
-      <a href="/#about">About</a>
-      <a href="/#contact">Contact</a>
-      <a href="/privacy/">Privacy</a>
-    </nav>
-    <p class="copy">&copy; 2026 FlouLox Studios</p>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="/" aria-label="FlouLox Studios home">
+          <img class="mark" src="/assets/img/emblem-sm.webp" alt="" width="112" height="124" loading="lazy">
+          <span class="sep" aria-hidden="true"></span>
+          <img class="word" src="/assets/img/wordmark.webp" alt="" width="400" height="88" loading="lazy">
+        </a>
+        <p>An independent game studio making original games with their own worlds and atmosphere.</p>
+      </div>
+      <nav class="foot-col" aria-labelledby="foot-nav">
+        <h2 id="foot-nav">Navigate</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#games">Games</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="foot-col">
+        <h2>Our games</h2>
+        <ul>
+          <li><a href="/scrap-surge/">Scrap Surge</a></li>
+          <li><a href="/scrap-surge/#support">Scrap Surge support</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Get in touch</h2>
+        <a class="mail-link" href="mailto:contact@flouloxstudios.com"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg>contact@flouloxstudios.com</a>
+        <small>Questions, game support, feedback and collaborations.</small>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 FlouLox Studios. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/scrap-surge/privacy.html">Scrap Surge privacy policy</a>
+        <a class="to-top" href="#top">Back to top<svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#up"/></svg></a>
+      </nav>
+    </div>
   </div>
 </footer>
+<!-- /footer -->
 </body>
 </html>

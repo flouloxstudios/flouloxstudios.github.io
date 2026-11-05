@@ -6,25 +6,34 @@
 <title>Scrap Surge Privacy Policy</title>
 <meta name="description" content="What information Scrap Surge uses, why, who it is shared with, and the choices you have.">
 <link rel="canonical" href="https://flouloxstudios.com/scrap-surge/privacy.html">
-<meta name="theme-color" content="#06030d">
-<link rel="icon" href="/assets/img/mark.svg" type="image/svg+xml">
+<meta name="theme-color" content="#050917">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/icon-180.png">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js");</script>
+<script src="/assets/js/site.js" defer></script>
 </head>
-<body>
-<div class="space" aria-hidden="true"></div>
+<body id="top">
+<div class="page-glow" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
-<header class="nav">
+<!-- header current=none -->
+<header class="site-header" data-header>
   <div class="wrap">
-    <a class="brand" href="/" aria-label="FlouLox Studios home"><img src="/assets/img/mark.svg" alt="" width="38" height="38"><span>FlouLox <span>Studios</span></span></a>
-    <nav aria-label="Main">
-      <a href="/">Home</a>
-      <a href="/#games">Games</a>
-      <a href="/#about">About</a>
-      <a href="/#contact">Contact</a>
+    <a class="brand" href="/" aria-label="FlouLox Studios home">
+      <img class="mark" src="/assets/img/emblem-sm.webp" alt="" width="112" height="124">
+      <span class="sep" aria-hidden="true"></span>
+      <img class="word" src="/assets/img/wordmark.webp" alt="" width="400" height="88">
+    </a>
+    <button class="nav-toggle icon-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg></button>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <a href="/" data-nav="home" data-spy="top">Home</a>
+      <a href="/#games" data-nav="games" data-spy="games">Games</a>
+      <a href="/#about" data-nav="about" data-spy="about">About</a>
+      <a href="/#contact" data-nav="contact" data-spy="contact">Contact</a>
     </nav>
   </div>
 </header>
+<!-- /header -->
 
 <main id="main" class="prose">
 <h1>Scrap Surge Privacy Policy</h1>
@@ -77,18 +86,50 @@
 <p>FlouLox Studios &middot; <a href="mailto:contact@flouloxstudios.com">contact@flouloxstudios.com</a></p>
 </main>
 
-<footer class="foot">
+<!-- footer -->
+<footer class="site-footer">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="FlouLox Studios home"><img src="/assets/img/mark.svg" alt="" width="32" height="32"><span>FlouLox <span>Studios</span></span></a>
-    <nav aria-label="Footer">
-      <a href="/">Home</a>
-      <a href="/#games">Games</a>
-      <a href="/#about">About</a>
-      <a href="/#contact">Contact</a>
-      <a href="/privacy/">Privacy</a>
-    </nav>
-    <p class="copy">&copy; 2026 FlouLox Studios</p>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="/" aria-label="FlouLox Studios home">
+          <img class="mark" src="/assets/img/emblem-sm.webp" alt="" width="112" height="124" loading="lazy">
+          <span class="sep" aria-hidden="true"></span>
+          <img class="word" src="/assets/img/wordmark.webp" alt="" width="400" height="88" loading="lazy">
+        </a>
+        <p>An independent game studio making original games with their own worlds and atmosphere.</p>
+      </div>
+      <nav class="foot-col" aria-labelledby="foot-nav">
+        <h2 id="foot-nav">Navigate</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#games">Games</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="foot-col">
+        <h2>Our games</h2>
+        <ul>
+          <li><a href="/scrap-surge/">Scrap Surge</a></li>
+          <li><a href="/scrap-surge/#support">Scrap Surge support</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Get in touch</h2>
+        <a class="mail-link" href="mailto:contact@flouloxstudios.com"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg>contact@flouloxstudios.com</a>
+        <small>Questions, game support, feedback and collaborations.</small>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 FlouLox Studios. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/scrap-surge/privacy.html">Scrap Surge privacy policy</a>
+        <a class="to-top" href="#top">Back to top<svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#up"/></svg></a>
+      </nav>
+    </div>
   </div>
 </footer>
+<!-- /footer -->
 </body>
 </html>
