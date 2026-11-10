@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signing in to Scrap Surge</title>
+<meta name="description" content="Finishing your Scrap Surge sign-in.">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://flouloxstudios.com/scrap-surge/signin.html">
+<meta name="theme-color" content="#050917">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/icon-180.png">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js");</script>
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body id="top">
+<div class="page-glow" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<!-- header current=none -->
+<header class="site-header" data-header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="FlouLox Studios home">
+      <img class="mark" src="/assets/img/emblem-sm.webp" alt="" width="112" height="124">
+      <span class="sep" aria-hidden="true"></span>
+      <img class="word" src="/assets/img/wordmark.webp" alt="" width="400" height="88">
+    </a>
+    <button class="nav-toggle icon-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#menu"/></svg></button>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <a href="/" data-nav="home" data-spy="top">Home</a>
+      <a href="/#games" data-nav="games" data-spy="games">Games</a>
+      <a href="/#about" data-nav="about" data-spy="about">About</a>
+      <a href="/#contact" data-nav="contact" data-spy="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<!-- /header -->
+
+<main id="main" class="prose">
+<h1>Scrap Surge</h1>
+<p class="meta" id="signin-title">Finishing your sign-in&hellip;</p>
+<p id="signin-message">One moment while we tell the game who you are.</p>
+<p id="signin-back" hidden><a id="signin-link" href="#">Back to Scrap Surge</a></p>
+<noscript><p>This page needs JavaScript to finish signing in.</p></noscript>
+<p><small>Signing in keeps a copy of your progress in your Google account. Google only tells us your account's ID number, not your name or email. <a href="/scrap-surge/privacy.html">Privacy policy</a></small></p>
+<script>
+// Google sends the player here after they pick an account. The code it adds to the address goes
+// to the Scrap Surge server, which asks Google who signed in; the game, waiting on the phone,
+// then finds out. The code is taken out of the address straight away.
+(function () {
+  var params = new URLSearchParams(location.search);
+  var server = 'https://scrap-surge-server.fly.dev';
+  // Testing on this PC only: a page opened from localhost may name a local server.
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(params.get('server') || '')) server = params.get('server');
+  var code = params.get('code'), state = params.get('state'), error = params.get('error');
+  history.replaceState(null, '', location.pathname);
+  var title = document.getElementById('signin-title');
+  var message = document.getElementById('signin-message');
+  function show(heading, text) { title.textContent = heading; message.textContent = text; }
+  if (error || !code || !state) {
+    show('Sign-in cancelled', 'Nothing was changed. Go back to Scrap Surge and try again whenever you like.');
+    return;
+  }
+  fetch(server + '/auth/finish', {method: 'POST', headers: {'Content-Type': 'text/plain'}, body: JSON.stringify({code: code, state: state})})
+    .then(function (reply) { return reply.json().catch(function () { return {}; }).then(function (data) { return {status: reply.status, data: data}; }); })
+    .then(function (result) {
+      if (result.status === 200) {
+        var back = String(result.data.return_to || '');
+        if (/^https:\/\/|^http:\/\/(localhost|127\.0\.0\.1):/.test(back)) {
+          show('Signed in', 'Taking you back to the game...');
+          document.getElementById('signin-link').href = back;
+          document.getElementById('signin-back').hidden = false;
+          setTimeout(function () { location.replace(back); }, 1200);
+        } else {
+          show('Signed in', 'You can switch back to Scrap Surge now. Your progress is saved to your Google account from here on.');
+        }
+      } else if (result.status === 404) {
+        show('This sign-in has expired', 'Go back to Scrap Surge and tap Sign in with Google again.');
+      } else {
+        show('Sign-in didn\'t go through', 'Google didn\'t confirm it. Go back to Scrap Surge and try again.');
+      }
+    })
+    .catch(function () {
+      show('Our server can\'t be reached', 'Check your connection, then go back to Scrap Surge and try again.');
+    });
+}());
+</script>
+</main>
+
+<!-- footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="/" aria-label="FlouLox Studios home">
+          <img class="mark" src="/assets/img/emblem-sm.webp" alt="" width="112" height="124" loading="lazy">
+          <span class="sep" aria-hidden="true"></span>
+          <img class="word" src="/assets/img/wordmark.webp" alt="" width="400" height="88" loading="lazy">
+        </a>
+        <p>An independent game studio making original games with their own worlds and atmosphere.</p>
+      </div>
+      <nav class="foot-col" aria-labelledby="foot-nav">
+        <h2 id="foot-nav">Navigate</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#games">Games</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="foot-col">
+        <h2>Our games</h2>
+        <ul>
+          <li><a href="/scrap-surge/">Scrap Surge</a></li>
+          <li><a href="/scrap-surge/#support">Scrap Surge support</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Get in touch</h2>
+        <a class="mail-link" href="mailto:contact@flouloxstudios.com"><svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#mail"/></svg>contact@flouloxstudios.com</a>
+        <small>Questions, game support, feedback and collaborations.</small>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 FlouLox Studios. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/scrap-surge/privacy.html">Scrap Surge privacy policy</a>
+        <a class="to-top" href="#top">Back to top<svg class="ic" aria-hidden="true"><use href="/assets/img/icons.svg#up"/></svg></a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+</body>
+</html>
